@@ -37,9 +37,12 @@ echo "[OK] Python: $(python --version 2>&1)"
 echo "[*] Dang chay Ka Rejoin..."
 echo ""
 
+# Duong dan Python day du (Termux)
+PYTHON_BIN="$(command -v python)"
+
 # Chay tool voi quyen root (su) neu co
 if command -v su >/dev/null 2>&1; then
-    su -c "cd '$SCRIPT_DIR' && python '$MAIN_PY'"
+    su -c "export PATH=/data/data/com.termux/files/usr/bin:\$PATH && cd '$SCRIPT_DIR' && '$PYTHON_BIN' '$MAIN_PY'"
 else
     cd "$SCRIPT_DIR" && python "$MAIN_PY"
 fi
