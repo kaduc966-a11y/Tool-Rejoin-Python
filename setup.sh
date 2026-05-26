@@ -85,13 +85,22 @@ curl -sL "$REPO/run.sh" -o "$TOOL_DIR/run.sh"
 chmod +x "$TOOL_DIR/run.sh"
 echo "  -> Da tai run.sh"
 
+# Fix CRLF line endings (file tao tren Windows)
+if command -v sed >/dev/null 2>&1; then
+    sed -i 's/\r$//' "$TOOL_DIR/run.sh" 2>/dev/null
+    sed -i 's/\r$//' "$TOOL_DIR/main.py" 2>/dev/null
+    echo "  -> Da fix line endings"
+fi
+
+# Xoa config cu (co the chua mock key)
+rm -f "$TOOL_DIR/rejoin-config.properties" 2>/dev/null
 # Config se duoc tao tu dong khi chay tool lan dau
 
 # 7. Tao alias 'run' va shortcut
 echo "[7/7] Tao shortcut..."
 
 # Tao alias trong bashrc
-ALIAS_LINE="alias run='cd $TOOL_DIR && bash run.sh'"
+ALIAS_LINE="alias run='bash $TOOL_DIR/run.sh'"
 if ! grep -qF "alias run=" "$HOME_DIR/.bashrc" 2>/dev/null; then
     echo "" >> "$HOME_DIR/.bashrc"
     echo "# Ka Rejoin Python" >> "$HOME_DIR/.bashrc"
