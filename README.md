@@ -63,7 +63,6 @@ bash run.sh
 - 🐍 **Python Native** — Không cần cài Java/JDK, nhẹ hơn
 - ⚡ **Khởi động nhanh** — Không cần JVM startup time
 - 📱 **Tối ưu Termux** — Tiết kiệm RAM và pin hơn bản Java
-- 🔐 **Mã hóa DH** — Diffie-Hellman Key Exchange bảo mật
 
 ---
 
