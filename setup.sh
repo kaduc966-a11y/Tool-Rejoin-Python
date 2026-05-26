@@ -92,9 +92,15 @@ if command -v sed >/dev/null 2>&1; then
     echo "  -> Da fix line endings"
 fi
 
-# Xoa config cu (co the chua mock key)
-rm -f "$TOOL_DIR/rejoin-config.properties" 2>/dev/null
-# Config se duoc tao tu dong khi chay tool lan dau
+# Xoa config cu neu chua mock key (giu lai neu da nhap key that)
+if [ -f "$TOOL_DIR/rejoin-config.properties" ]; then
+    if grep -q "WL-MOCK" "$TOOL_DIR/rejoin-config.properties" 2>/dev/null; then
+        rm -f "$TOOL_DIR/rejoin-config.properties"
+        echo "  -> Da xoa config cu (mock key)"
+    else
+        echo "  -> Giu config hien tai (da co key)"
+    fi
+fi
 
 # 7. Tao alias 'run' va shortcut
 echo "[7/7] Tao shortcut..."
