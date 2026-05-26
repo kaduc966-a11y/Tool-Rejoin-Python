@@ -1,0 +1,15 @@
+# Binary files
+*.pyc
+__pycache__/
+*.pyo
+
+# Config with secrets
+rejoin-config.properties
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
