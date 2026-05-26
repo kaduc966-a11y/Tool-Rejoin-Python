@@ -73,8 +73,6 @@ File config: `rejoin-config.properties`
 
 | Thuộc tính | Mô tả | Mặc định |
 |---|---|---|
-| `license_key` | License key của bạn | _(nhập khi chạy lần đầu)_ |
-| `whitelist_server_url` | URL server xác thực | _(hardcode trong code)_ |
 | `package_prefixes` | Prefix package Roblox | `roblox,delta` |
 | `delay_seconds` | Delay giữa các lần check | `3` |
 | `join_method` | Phương thức join | `deeplink_package` |
